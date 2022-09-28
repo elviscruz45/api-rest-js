@@ -1,3 +1,5 @@
+#API(KEY)
+src/secrets.js
 # Logs
 logs
 *.log

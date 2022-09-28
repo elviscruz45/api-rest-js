@@ -1,0 +1,19 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "projecto api rest",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elviscruz45/api-rest-js.git"
+  },
+  "author": "elviscruz45",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elviscruz45/api-rest-js/issues"
+  },
+  "homepage": "https://github.com/elviscruz45/api-rest-js#readme"
+}
