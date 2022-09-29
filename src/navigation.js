@@ -1,10 +1,13 @@
 
-
 window.addEventListener("DOMContentLoaded",navigator,false);
 window.addEventListener("hashchange",navigator,false);
-searchFormBtn.addEventListener("click",()=>{location.hash="#search="})
+searchFormBtn.addEventListener("click",()=>{
+    location.hash="#search="+searchFormInput.value})
 trendingBtn.addEventListener("click",()=>{location.hash="#trends"})
-arrowBtn.addEventListener("click",()=>{location.hash="#home"})
+arrowBtn.addEventListener("click",()=>{
+    history.back()
+    //location.hash="#home"
+})
 
 
 
@@ -21,8 +24,9 @@ function navigator(){
             categoryPage()
     }else{
             homePage()
-
     }
+    document.body.scrollTop=0
+    document.documentElement.scrollTop=0
 }
 
 function homePage(){
@@ -62,6 +66,9 @@ function trendsPage(){
     genericSection.classList.remove("inactive")
     movieDetailSection.classList.add("inactive")
 
+    headerCategoryTitle.innerHTML="Tendencias"
+    getTrendingMovies()
+
 }
 
 
@@ -73,7 +80,7 @@ function searchPage(){
     arrowBtn.classList.remove("header-arrow--white")
 
     headerTitle.classList.add("inactive")
-    headerCategoryTitle.classList.remove("inactive")
+    headerCategoryTitle.classList.add("inactive")
     searchForm.classList.remove("inactive")
 
     trendingPreviewSection.classList.add("inactive")
@@ -81,7 +88,9 @@ function searchPage(){
     genericSection.classList.remove("inactive")
     movieDetailSection.classList.add("inactive")
 
-
+     const [_,query]=location.hash.split("=")
+    
+     getMoviesBySearch(query)
 }
 
 
@@ -102,7 +111,8 @@ function movieDetailsPage(){
     genericSection.classList.add("inactive")
     movieDetailSection.classList.remove("inactive")
 
-
+    const [_,movieId]=location.hash.split("=")
+    getMoviebyId(movieId)
 }
 
 
@@ -122,7 +132,7 @@ function categoryPage(){
     trendingPreviewSection.classList.add("inactive")
     categoriesPreviewSection.classList.add("inactive")
     genericSection.classList.remove("inactive")
-    movieDetailSection.classList.remove("inactive")
+    movieDetailSection.classList.add("inactive")
 
     const [_,categoryData]=location.hash.split("=")
     const [categoryId,categoryName]=categoryData.split("-")
