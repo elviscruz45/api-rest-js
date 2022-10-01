@@ -1,3 +1,4 @@
+let maxPage
 let page=1
 let infiniteScroll
 
@@ -106,6 +107,8 @@ function searchPage(){
      const [_,query]=location.hash.split("=")
     
      getMoviesBySearch(query)
+     infiniteScroll= getPaginatedMoviesBySearch(query)
+
 }
 
 
@@ -156,6 +159,7 @@ function categoryPage(){
 
     
     getMoviesByCategory(categoryId)
+    infiniteScroll= getPaginatedMoviesByCategory(categoryId)
 
 }
 
