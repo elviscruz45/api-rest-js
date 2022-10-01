@@ -56,7 +56,10 @@ function homePage(){
 
     trendingPreviewSection.classList.remove("inactive")
     likedMoviesSection.classList.remove("inactive")
-
+    console.log(localStorage)
+    if (localStorage["liked_movies"]=='{}'){
+        likedMoviesListArticle.classList.add("inactive")
+    }else{likedMoviesListArticle.classList.remove("inactive")}
 
     categoriesPreviewSection.classList.remove("inactive")
     genericSection.classList.add("inactive")
